@@ -68,10 +68,9 @@ if (!juego) {
 
                     <h3>¿CÓMO SE JUEGA?</h3>
 
-                    <p>
-                        Próximamente vamos a agregar las instrucciones
-                        de este juego.
-                    </p>
+                        <p>
+                             ${juego.reglas || "Próximamente vamos a agregar las instrucciones de este juego."}
+                        </p>
 
                 </section>
 
