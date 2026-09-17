@@ -302,10 +302,42 @@ const juegos = [
 ];
 
 const contenedorJuegos = document.getElementById("lista-juegos");
+const buscador = document.getElementById("buscador-juegos");
+const botonesCategoria = document.querySelectorAll("[data-categoria]");
 
-if (contenedorJuegos) {
+let categoriaActual = "todas";
 
-    juegos.forEach(juego => {
+function mostrarJuegos() {
+
+    const texto = buscador.value.toLowerCase().trim();
+
+    const juegosFiltrados = juegos.filter(juego => {
+
+        const coincideCategoria =
+            categoriaActual === "todas" ||
+            juego.categoria === categoriaActual;
+
+        const coincideBusqueda =
+            juego.nombre.toLowerCase().includes(texto);
+
+        return coincideCategoria && coincideBusqueda;
+    });
+
+    contenedorJuegos.innerHTML = "";
+
+    if (juegosFiltrados.length === 0) {
+
+        contenedorJuegos.innerHTML = `
+            <div class="juegos-vacios">
+                <h3>NO ENCONTRAMOS ESE JUEGO</h3>
+                <p>Probá con otro nombre o categoría.</p>
+            </div>
+        `;
+
+        return;
+    }
+
+    juegosFiltrados.forEach(juego => {
 
         const tarjeta = document.createElement("article");
 
@@ -313,6 +345,7 @@ if (contenedorJuegos) {
 
         tarjeta.innerHTML = `
             <a href="juego.html?id=${juego.id}">
+
                 <div class="imagen-juego">
                     <img
                         src="../img/juegos/${juego.imagen}"
@@ -321,13 +354,51 @@ if (contenedorJuegos) {
                 </div>
 
                 <div class="info-juego">
+
                     <h3>${juego.nombre}</h3>
+
                     <p>👥 ${juego.jugadores}</p>
+
                 </div>
+
             </a>
         `;
 
         contenedorJuegos.appendChild(tarjeta);
     });
+}
+
+
+// BUSCADOR
+
+if (buscador) {
+
+    buscador.addEventListener("input", mostrarJuegos);
 
 }
+
+
+// CATEGORÍAS
+
+botonesCategoria.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        categoriaActual = boton.dataset.categoria;
+
+        botonesCategoria.forEach(b => {
+            b.classList.remove("activo");
+        });
+
+        boton.classList.add("activo");
+
+        mostrarJuegos();
+
+    });
+
+});
+
+
+// MOSTRAR TODOS AL CARGAR
+
+mostrarJuegos();

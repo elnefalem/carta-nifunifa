@@ -35,7 +35,7 @@ const carta = [
     categoria: "COMIDAS",
     columna: "izquierda",
     productos: [
-        { nombre: "PIZZA", precio: 11000 },
+        
         { nombre: "MUZARELLA", precio: 11000 },
         { nombre: "MUZARELLA & JAMÓN", precio: 12000 },
         { nombre: "MUZARELLA & SALAME", precio: 13000 },
