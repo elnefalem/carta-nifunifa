@@ -624,3 +624,172 @@ footer {
     }
 
 }
+
+/* =========================
+   DETALLE DE JUEGOS
+   ========================= */
+
+.detalle-juego {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.volver-detalle {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #29221c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.volver-detalle:hover {
+    text-decoration: underline;
+}
+
+.ficha-juego {
+    background: #f6ebd2;
+    border: 4px solid #29221c;
+    box-shadow: 6px 6px 0 #29221c;
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.ficha-imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #e8d8b8;
+    border: 3px solid #29221c;
+    overflow: hidden;
+}
+
+.ficha-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ficha-contenido h2 {
+    margin: 0 0 25px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #713426;
+
+    border-bottom: 3px solid #29221c;
+    padding-bottom: 10px;
+}
+
+.datos-juego {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.dato {
+    text-align: center;
+    border: 2px solid #29221c;
+    padding: 10px 5px;
+}
+
+.dato span {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.dato strong {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.dato p {
+    margin: 5px 0 0;
+    font-weight: bold;
+}
+
+.etiquetas-juego {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.etiquetas-juego span {
+    background: #713426;
+    color: #f6ebd2;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.reglas-juego {
+    border-top: 2px solid #29221c;
+    padding-top: 20px;
+}
+
+.reglas-juego h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #713426;
+    margin-bottom: 12px;
+}
+
+.reglas-juego p {
+    line-height: 1.6;
+}
+
+/* Juego inexistente */
+
+.juego-no-encontrado {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f6ebd2;
+    border: 3px solid #29221c;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .detalle-juego {
+        margin: 0;
+        padding: 15px;
+    }
+
+    .ficha-juego {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .ficha-contenido h2 {
+        font-size: 2rem;
+    }
+
+    .datos-juego {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .dato {
+        padding: 8px 3px;
+    }
+
+    .dato span {
+        font-size: 1.2rem;
+    }
+
+    .dato strong {
+        font-size: 0.7rem;
+    }
+
+    .dato p {
+        font-size: 0.8rem;
+    }
+}
